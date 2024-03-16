@@ -35,6 +35,12 @@ public class PlayerStates : MonoBehaviour
                 rb.gravityScale = 0;
                 collider.isTrigger = true;
                 break;
+            case 2:
+                //Punching
+                break;
+            case 3:
+                //Taking Damage
+                break;
         }
     }
 }

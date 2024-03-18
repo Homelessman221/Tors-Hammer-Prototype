@@ -1851,7 +1851,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1290369841857495066, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.38
+      value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: 1290369841857495066, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1989,7 +1989,7 @@ MonoBehaviour:
   bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
   attackWindUpTime: 1
   attackCooldownTime: 1
-  slideSpeed: 2000
+  slideSpeed: 200
   RB: {fileID: 6160321076422409359}
   isFacingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
   maxDistanceForWallCheck: 2

@@ -12,12 +12,14 @@ public class PlayerStates : MonoBehaviour
 
     private float gravity = 1;
 
+    [SerializeField] private GameObjectVariable playerScrubReference;
     private void Start()
     {
         move = GetComponent<PlayerMove>();
         input = GetComponent<PlayerInput>(); rb = GetComponent<Rigidbody2D>();
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+        playerScrubReference.Value = gameObject;
     }
     private void Update()
     {

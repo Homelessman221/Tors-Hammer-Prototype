@@ -42,6 +42,7 @@ public class NewBossStateController : MonoBehaviour
     private void Start()
     {
         _bossState.Value = 0;
+        lastAttack = -1;
     }
     private void Update()
     {
@@ -152,18 +153,70 @@ public class NewBossStateController : MonoBehaviour
     }
     private void JumpToCorner()
     {
-        if (_jumpTimeCurrent <= 0f)
+        if(_jumpTarget == leftCorner.position && transform.position.x <= -6.1f)
+        {
+            _bossState.Value = 2;
+            SelectAttack();
+        }
+        else if(_jumpTarget == rightCorner.position && transform.position.x >= 6.1f)
         {
             _bossState.Value = 2;
             SelectAttack();
         }
         else
         {
-            _jumpTimeCurrent -= Time.deltaTime;
-            float t = 1f - _jumpTimeCurrent / _jumpTime;
+            if (_jumpTimeCurrent <= 0f)
+            {
+                _bossState.Value = 2;
+                SelectAttack();
+            }
+            else
+            {
+                _jumpTimeCurrent -= Time.deltaTime;
+                float t = 1f - _jumpTimeCurrent / _jumpTime;
 
-            transform.position = Vector3.Lerp(_jumpOrigin, _jumpTarget, t) + Vector3.up * (Mathf.Pow(t, 2) * -4 + t * 4) * _jumpHeight;
+                transform.position = Vector3.Lerp(_jumpOrigin, _jumpTarget, t) + Vector3.up * (Mathf.Pow(t, 2) * -4 + t * 4) * _jumpHeight;
+            }
         }
+        /*
+        if(currentAttackScrub.StartUpType == 1)
+        {
+            if(transform.position.x < 0)
+            {
+                if(transform.position.x <= 3.5f)
+                {
+                    _bossState.Value = 2;
+                    SelectAttack();
+                }
+            }
+            else if (transform.position.x > 0)
+
+            {
+                if(transform.position.x <= 3.5f)
+                {
+                    _bossState.Value = 2;
+                    SelectAttack();
+                }
+            }
+            else
+            {
+                if (_jumpTimeCurrent <= 0f)
+                {
+                    _bossState.Value = 2;
+                    SelectAttack();
+                }
+                else
+                {
+                    _jumpTimeCurrent -= Time.deltaTime;
+                    float t = 1f - _jumpTimeCurrent / _jumpTime;
+
+                    transform.position = Vector3.Lerp(_jumpOrigin, _jumpTarget, t) + Vector3.up * (Mathf.Pow(t, 2) * -4 + t * 4) * _jumpHeight;
+                }
+            }
+        }
+        */
+
+
     }
 
     private void SelectAttack()

@@ -1921,6 +1921,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8149685169821134964, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6160321076422409363}
+    - targetCorrespondingSourceObject: {fileID: 8149685169821134964, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6160321076422409366}
   m_SourcePrefab: {fileID: 100100000, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
 --- !u!1 &6160321076422409356 stripped
 GameObject:
@@ -1934,7 +1937,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160321076422409356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c2aa49d8344aae49aaf37c3bf4ee296, type: 3}
   m_Name: 
@@ -1950,6 +1953,7 @@ MonoBehaviour:
   phase1Attacks:
   - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
   - {fileID: 11400000, guid: 052e0053ecd12ae4682502c1858e3fa6, type: 2}
+  - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
   phase2Attacks:
   - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
   phase3Attacks:
@@ -1985,7 +1989,7 @@ MonoBehaviour:
   bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
   attackWindUpTime: 1
   attackCooldownTime: 1
-  slideSpeed: 1000
+  slideSpeed: 2000
   RB: {fileID: 6160321076422409359}
   isFacingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
   maxDistanceForWallCheck: 2
@@ -2006,10 +2010,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
   isFacingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
-  attackWindUpTime: 1
+  attackWindUpTime: 0.3
   attackCooldownTime: 1
   Projectile: {fileID: 8256243308909400102, guid: ad5cb8e9e7a937e46b342bd9d575de59, type: 3}
   projectilePoint: {fileID: 1187973158}
+--- !u!114 &6160321076422409366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160321076422409356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0698b3bbd450f4495bd8eeb55d43c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
+  testList:
+  - 11
+  firstPhaseAttacks:
+  - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
+  - {fileID: 11400000, guid: 052e0053ecd12ae4682502c1858e3fa6, type: 2}
+  attackScriptList:
+  - {fileID: 6160321076422409362}
+  - {fileID: 6160321076422409363}
+  rightCorner: {fileID: 1210213563}
+  leftCorner: {fileID: 2019698422}
+  attackScripts: []
+  openingAttacks: []
+  phase1Attacks: []
+  phase2Attacks: []
+  phase3Attacks: []
+  randomAttackMode: 0
+  _jumpTime: 1
+  _jumpHeight: 3
+  _jumpTimeCurrent: 0
+  Player: {fileID: 11400000, guid: f7e65d4bd7e319b4eabd8ff09ab6d47d, type: 2}
+  facingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
 --- !u!1001 &8292917972226022325
 PrefabInstance:
   m_ObjectHideFlags: 0

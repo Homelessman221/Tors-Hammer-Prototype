@@ -49,11 +49,11 @@ public class FSlide : MonoBehaviour
                 checkForWall();
                 if(isFacingRight.Value == 0)
                 {
-                    RB.velocity = Vector2.left * slideSpeed * Time.deltaTime;
+                    RB.velocity = Vector2.left * slideSpeed;
                 }
                 if (isFacingRight.Value == 1)
                 {
-                    RB.velocity = Vector2.right * slideSpeed * Time.deltaTime;
+                    RB.velocity = Vector2.right * slideSpeed;
                 }
                 if (isWall)
                 {
@@ -65,7 +65,7 @@ public class FSlide : MonoBehaviour
                 attackCooldownTimer -= Time.deltaTime;
                 if(attackCooldownTimer <= 0)
                 {
-                    bossState.Value = 3;
+                    bossState.Value = 0;
                 }
                 break;
         }

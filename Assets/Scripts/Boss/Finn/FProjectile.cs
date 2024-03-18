@@ -50,7 +50,7 @@ public class FProjectile : MonoBehaviour
                 attackCooldownTimer -= Time.deltaTime;
                 if (attackCooldownTimer <= 0)
                 {
-                    bossState.Value = 3;
+                    bossState.Value = 0;
                 }
                 break;
         }

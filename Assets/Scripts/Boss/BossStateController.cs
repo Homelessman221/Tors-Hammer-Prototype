@@ -61,6 +61,7 @@ public class BossStateController : MonoBehaviour
                 //select next attack in current phase pool
                 NextAttack();
                 attackScripts[currentAttackScrub.attackID].enabled = false;
+                print("attack end");
                 break;
 
                 
@@ -76,7 +77,7 @@ public class BossStateController : MonoBehaviour
     } 
     private void StartUpState()
     {
-        print("start up");
+        print("start up state");
         if (currentAttackScrub.StartUpType == 0)
         {
             _bossState.Value = 2;
@@ -141,7 +142,7 @@ public class BossStateController : MonoBehaviour
     private void SelectAttack()
     {
         //script matching current attack iD starts
-        
+        print("current attack is" + currentAttack);
         currentAttackScript = attackScripts[currentAttack];
         currentAttackScript.enabled = true;
         print("attacking");
@@ -212,25 +213,21 @@ public class BossStateController : MonoBehaviour
             {
                 currentAttack += 1;
                 print("current attack is" + currentAttack);
-                if (currentAttack <= phase1Attacks.Length)
+                if (currentAttack >= phase1Attacks.Length)
                 {
-                   
+                    
+                    currentAttack = 0;
+                    print("current attack is reset");
+                }
+                if(currentAttack < phase1Attacks.Length)
+                {
                     currentAttackScrub = phase1Attacks[currentAttack];
                     currentAttackScript = attackScripts[currentAttackScrub.attackID];
                     _bossState.Value = 1;
                     StartUpState();
                     print("next attack");
                 }
-                else
-                {
-
-                    currentAttack = 0;
-                    currentAttackScrub = phase1Attacks[currentAttack];
-                    currentAttackScript = attackScripts[currentAttackScrub.attackID];
-                    _bossState.Value = 1;
-                    StartUpState();
-                    print("reset to first attack");
-                }
+                
             }
             if (_bossPhase == 2)
             {

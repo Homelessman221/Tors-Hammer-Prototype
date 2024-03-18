@@ -10,6 +10,8 @@ public class FSlide : MonoBehaviour
 
     [SerializeField] private float attackWindUpTime;
     private float attackWindUpTimer;
+    [SerializeField] private float attackCooldownTime;
+    private float attackCooldownTimer;
 
     [SerializeField] private float slideSpeed;
     [SerializeField] private Rigidbody2D RB;
@@ -54,6 +56,14 @@ public class FSlide : MonoBehaviour
                     RB.velocity = Vector2.right * slideSpeed * Time.deltaTime;
                 }
                 if (isWall)
+                {
+                    attackCooldownTimer = attackCooldownTime;
+                    attackState = 3;
+                }
+                break;
+            case 3:
+                attackCooldownTimer -= Time.deltaTime;
+                if(attackCooldownTimer <= 0)
                 {
                     bossState.Value = 3;
                 }

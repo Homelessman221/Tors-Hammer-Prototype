@@ -250,7 +250,7 @@ public class PlayerThrow : MonoBehaviour
         isPlayer = isPlayer1 || isPlayer2 || isPlayer3 || isPlayer4;
         if(isPlayer)
         {
-            print("player is!");
+            //print("player is!");
         }
     }
 

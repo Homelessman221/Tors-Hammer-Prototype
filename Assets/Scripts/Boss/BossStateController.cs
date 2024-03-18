@@ -27,6 +27,8 @@ public class BossStateController : MonoBehaviour
     [SerializeField] private GameObjectVariable Player;
 
     [SerializeField] private IntVariable facingRight;
+
+    private MonoBehaviour currentAttackScript;
     private void Start()
     {
         _bossState.Value = 0;
@@ -42,7 +44,7 @@ public class BossStateController : MonoBehaviour
                 currentAttack = openingAttacks[rand].attackID;
                 currentAttackScrub = openingAttacks[rand];
                 currentAttack = currentAttackScrub.attackID;
-                StartUp();
+                StartUpState();
                 break;
                 case 1:
                 //Start up
@@ -54,12 +56,11 @@ public class BossStateController : MonoBehaviour
                 break;
                 case 2:
                 //The attack. Happens in a different script
-                print("attack");
                 break;
                 case 3:
                 //select next attack in current phase pool
-                attackScripts[currentAttackScrub.attackID].enabled = false;
                 NextAttack();
+                attackScripts[currentAttackScrub.attackID].enabled = false;
                 break;
 
                 
@@ -73,7 +74,7 @@ public class BossStateController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
     } 
-    private void StartUp()
+    private void StartUpState()
     {
         print("start up");
         if (currentAttackScrub.StartUpType == 0)
@@ -140,7 +141,10 @@ public class BossStateController : MonoBehaviour
     private void SelectAttack()
     {
         //script matching current attack iD starts
-        attackScripts[currentAttack].enabled = true;
+        
+        currentAttackScript = attackScripts[currentAttack];
+        currentAttackScript.enabled = true;
+        print("attacking");
     }
     private void JumpToCorner()
     {
@@ -160,7 +164,8 @@ public class BossStateController : MonoBehaviour
 
     private void NextAttack()
     {
-        print("next attack");
+        //print("next attack");
+        currentAttackScript.enabled = false;
         if (randomAttackMode)
         {
             if (_bossPhase ==1)
@@ -172,12 +177,12 @@ public class BossStateController : MonoBehaviour
                     currentAttack = phase1Attacks[rand].attackID;
                     currentAttackScrub = phase1Attacks[rand];
                     _bossState.Value = 1;
-                    Start();
+                    StartUpState();
                 }
                 else
                 {
                     _bossState.Value = 1;
-                    Start();
+                    StartUpState();
                 }
             }
             if (_bossPhase == 2)
@@ -206,19 +211,25 @@ public class BossStateController : MonoBehaviour
             if (_bossPhase == 1)
             {
                 currentAttack += 1;
-                if (currentAttack > phase1Attacks.Length -1)
+                print("current attack is" + currentAttack);
+                if (currentAttack <= phase1Attacks.Length)
                 {
-                    currentAttack = 0;
+                   
                     currentAttackScrub = phase1Attacks[currentAttack];
+                    currentAttackScript = attackScripts[currentAttackScrub.attackID];
                     _bossState.Value = 1;
-                    Start();
+                    StartUpState();
+                    print("next attack");
                 }
                 else
                 {
-                    
+
+                    currentAttack = 0;
                     currentAttackScrub = phase1Attacks[currentAttack];
+                    currentAttackScript = attackScripts[currentAttackScrub.attackID];
                     _bossState.Value = 1;
-                    Start();
+                    StartUpState();
+                    print("reset to first attack");
                 }
             }
             if (_bossPhase == 2)

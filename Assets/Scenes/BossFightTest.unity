@@ -1248,6 +1248,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1187973157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187973158}
+  m_Layer: 7
+  m_Name: ProjectilePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187973158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187973157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.529, y: -0.595, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6160321076422409361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210213562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1889,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4492698372001388892, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8132160797293874353, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1872,7 +1907,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1290369841857495066, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187973158}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8149685169821134964, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       insertIndex: -1
@@ -1880,6 +1918,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8149685169821134964, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6160321076422409362}
+    - targetCorrespondingSourceObject: {fileID: 8149685169821134964, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6160321076422409363}
   m_SourcePrefab: {fileID: 100100000, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
 --- !u!1 &6160321076422409356 stripped
 GameObject:
@@ -1903,7 +1944,7 @@ MonoBehaviour:
   leftCorner: {fileID: 2019698422}
   attackScripts:
   - {fileID: 6160321076422409362}
-  - {fileID: 6160321076422409362}
+  - {fileID: 6160321076422409363}
   openingAttacks:
   - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
   phase1Attacks:
@@ -1924,6 +1965,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4492698372001388892, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
   m_PrefabInstance: {fileID: 6160321076422409355}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &6160321076422409361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1290369841857495066, guid: 1f4de928ac8d0524384f2eae02b57b60, type: 3}
+  m_PrefabInstance: {fileID: 6160321076422409355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6160321076422409362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,13 +1977,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160321076422409356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edcee35105e62054883f3160b7582bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
   attackWindUpTime: 1
+  attackCooldownTime: 1
   slideSpeed: 1000
   RB: {fileID: 6160321076422409359}
   isFacingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
@@ -1945,6 +1992,24 @@ MonoBehaviour:
   wall:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &6160321076422409363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160321076422409356}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44caf4830a5d2c7448d5dfde5c1cae3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossState: {fileID: 11400000, guid: 6777c48e067139f408bf7c5f51ade3b9, type: 2}
+  isFacingRight: {fileID: 11400000, guid: 90e9120d106192e48aeb31545f01b1ff, type: 2}
+  attackWindUpTime: 1
+  attackCooldownTime: 1
+  Projectile: {fileID: 8256243308909400102, guid: ad5cb8e9e7a937e46b342bd9d575de59, type: 3}
+  projectilePoint: {fileID: 1187973158}
 --- !u!1001 &8292917972226022325
 PrefabInstance:
   m_ObjectHideFlags: 0

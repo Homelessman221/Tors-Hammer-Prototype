@@ -22,8 +22,8 @@ TagManager:
   - FIST
   - PlayerHurtBox
   - EnemyHitBox
-  - 
-  - 
+  - EnemyHurtBox
+  - PlayerHitBox
   - 
   - 
   - 

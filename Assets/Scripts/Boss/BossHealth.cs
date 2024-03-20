@@ -10,13 +10,14 @@ public class BossHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("boss take damage");
         bossHealth.Value -= 1;
     }
     private void Update()
     {
         if(bossHealth.Value <= 0)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
 }

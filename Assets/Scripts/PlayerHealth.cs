@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health.Value = 5;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         
         if(iFrameTimer <= 0)
@@ -30,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
             playerTakeDamage.Raise();
             health.Value -= 1;
             iFrameTimer = iFrameTime;
-            print("take damage");
         }
     }
 

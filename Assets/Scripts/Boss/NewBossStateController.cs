@@ -18,13 +18,6 @@ public class NewBossStateController : MonoBehaviour
     [SerializeField] private Transform rightCorner;
     [SerializeField] private Transform leftCorner;
 
-    [SerializeField] private MonoBehaviour[] attackScripts;
-
-    [SerializeField] private BossAttackScrub[] openingAttacks;
-    [SerializeField] private BossAttackScrub[] phase1Attacks;
-    [SerializeField] private BossAttackScrub[] phase2Attacks;
-    [SerializeField] private BossAttackScrub[] phase3Attacks;
-
     [SerializeField] private bool randomAttackMode;
     private int currentAttack;
     private BossAttackScrub currentAttackScrub;
@@ -84,12 +77,12 @@ public class NewBossStateController : MonoBehaviour
         _bossState.Value = 1;
         currentAttackScrub = firstPhaseAttacks[lastAttack];
         StartUpState();
-        print("current attack is" + firstPhaseAttacks[lastAttack]);
+        //print("current attack is" + firstPhaseAttacks[lastAttack]);
     }
 
     private void StartUpState()
     {
-        print("start up state");
+        //print("start up state");
         if (currentAttackScrub.StartUpType == 0)
         {
             _bossState.Value = 2;

@@ -8,11 +8,7 @@ public class BossHealth : MonoBehaviour
 {
     [SerializeField] private IntVariable bossHealth;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("boss take damage");
-        bossHealth.Value -= 1;
-    }
+
     private void Update()
     {
         if(bossHealth.Value <= 0)
@@ -20,4 +16,11 @@ public class BossHealth : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("boss take damage");
+        bossHealth.Value -= 1;
+    }
+
+
 }

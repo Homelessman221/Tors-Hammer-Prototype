@@ -32,6 +32,8 @@ public class NewBossStateController : MonoBehaviour
     [SerializeField] private IntVariable facingRight;
 
     private MonoBehaviour currentAttackScript;
+
+    [SerializeField] private GameObject visualGameObject;
     private void Start()
     {
         _bossState.Value = 0;
@@ -55,11 +57,11 @@ public class NewBossStateController : MonoBehaviour
 
         if (facingRight.Value == 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            visualGameObject.transform.localScale = new Vector3(0.2387f, 0.2387f, 0.2387f);
         }
         if (facingRight.Value == 1)
         {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            visualGameObject.transform.localScale = new Vector3(-0.2387f, 0.2387f, 0.2387f);
         }
     }
 

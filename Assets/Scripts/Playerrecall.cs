@@ -12,6 +12,8 @@ public class Playerrecall : MonoBehaviour
     [SerializeField] private GameObject axe;
 
     private float selfRecallSpeed = 50f;
+
+    
     // Start is called before the first frame update
     void Start()
     {

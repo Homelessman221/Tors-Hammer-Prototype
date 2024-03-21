@@ -38,6 +38,9 @@ public class PlayerThrow : MonoBehaviour
 
     [SerializeField] private LayerMask isGroundLayer;
     [SerializeField] private LayerMask playerLayer;
+
+    [SerializeField] private Collider2D hurtBox;
+    [SerializeField] private Collider2D hitBox;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -109,6 +112,8 @@ public class PlayerThrow : MonoBehaviour
                     axeStates = 3;
                     axerb.constraints = RigidbodyConstraints2D.FreezeAll;
                     axerb.velocity = Vector3.zero;
+                    hitBox.enabled = true;
+                    hurtBox.enabled = false;
                 }
                 break;
         }
@@ -185,6 +190,8 @@ public class PlayerThrow : MonoBehaviour
                         axeStates = 3;
                         axerb.constraints = RigidbodyConstraints2D.FreezeAll;
                         axerb.velocity = Vector3.zero;
+                        hitBox.enabled = true;
+                        hurtBox.enabled = false;
                     }
                     break;
                 case 3:
@@ -262,6 +269,8 @@ public class PlayerThrow : MonoBehaviour
             axeStates = 0;
             playerHasAxe = true;
             currentAxeRecallSpeed = 0;
+            hitBox.enabled = false;
+            hurtBox.enabled = true;
         }
     }
 

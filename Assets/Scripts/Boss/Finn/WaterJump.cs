@@ -33,7 +33,7 @@ public class WaterJump : MonoBehaviour
         attackState = 0;
         waterJumpState = 0;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         switch (attackState)
         {

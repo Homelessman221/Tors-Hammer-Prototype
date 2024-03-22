@@ -22,6 +22,7 @@ public class BossHealth : MonoBehaviour
         defaultColor = spriteRenderer.color;
         shaderGUItext = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default");
+        bossHealth.Value = 40;
     }
     private void Update()
     {

@@ -3211,6 +3211,46 @@ PrefabInstance:
       propertyPath: hurtBox
       value: 
       objectReference: {fileID: 1327863774}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: moveInput
+      value: 
+      objectReference: {fileID: 11400000, guid: 85e2f478679f5904f8734e9e1b62520b, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: jumpReleased
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f30d25eff21a704e95c70ee61966e8d, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: jumpTriggered
+      value: 
+      objectReference: {fileID: 11400000, guid: 3819e38728469d54fa86258a43c386fc, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: throwReleased
+      value: 
+      objectReference: {fileID: 11400000, guid: 68ae2e2e3b93aa4489bd7e6aa6e4dffc, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: attackReleased
+      value: 
+      objectReference: {fileID: 11400000, guid: d54e55b96ca630d4598bb7518ac92b22, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: throwTriggered
+      value: 
+      objectReference: {fileID: 11400000, guid: ee6eb722cdbcebf4e8fe4c1748f003a6, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: attackTriggered
+      value: 
+      objectReference: {fileID: 11400000, guid: 36539a267d1817b4e8bca85d91ff668c, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: powerUpTriggered
+      value: 
+      objectReference: {fileID: 11400000, guid: 740f5c75578709f4aa05e1341f87bd18, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: selfRecallReleased
+      value: 
+      objectReference: {fileID: 11400000, guid: a7a64a7ba0fe57b4db0b1f296277c758, type: 2}
+    - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: selfRecallTriggered
+      value: 
+      objectReference: {fileID: 11400000, guid: 22f11d69ffa2dda49aa91f74e23f7983, type: 2}
     - target: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
       propertyPath: m_Name
       value: Funny Nora
@@ -3231,6 +3271,14 @@ PrefabInstance:
       propertyPath: isGrounded
       value: 
       objectReference: {fileID: 11400000, guid: aae7b585310956944a31876be83960bc, type: 2}
+    - target: {fileID: 8292917971215619701, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: moveVector
+      value: 
+      objectReference: {fileID: 11400000, guid: 85e2f478679f5904f8734e9e1b62520b, type: 2}
+    - target: {fileID: 8292917971215619701, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: isFacingRight
+      value: 
+      objectReference: {fileID: 11400000, guid: f5ceb08b9735cb34fbc6e99b2fd34b24, type: 2}
     - target: {fileID: 8292917971215619702, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
       propertyPath: collider
       value: 
@@ -3264,7 +3312,139 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1741466796}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022327}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022335}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022337}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022336}
   m_SourcePrefab: {fileID: 100100000, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+--- !u!114 &8292917972226022326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8292917971215619701, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+  m_PrefabInstance: {fileID: 8292917972226022325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd012132a1d71f4f89c1c8226e59473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8292917972226022327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c178a28e6effda24ea255dd4512e38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 3819e38728469d54fa86258a43c386fc, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8292917972226022326}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8292917972226022332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8292917971215619594, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+  m_PrefabInstance: {fileID: 8292917972226022325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02710fdcb918a37488e16ab508603c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8292917972226022335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df492407314d73048bd7485e382ef2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveVector: {fileID: 11400000, guid: 85e2f478679f5904f8734e9e1b62520b, type: 2}
+  isFacingRight: {fileID: 11400000, guid: f5ceb08b9735cb34fbc6e99b2fd34b24, type: 2}
+--- !u!114 &8292917972226022336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c178a28e6effda24ea255dd4512e38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 22f11d69ffa2dda49aa91f74e23f7983, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8292917972226022332}
+        m_TargetAssemblyTypeName: PlayerThrow, Assembly-CSharp
+        m_MethodName: SelfRecallInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8292917972226022337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c178a28e6effda24ea255dd4512e38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: ee6eb722cdbcebf4e8fe4c1748f003a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8292917972226022332}
+        m_TargetAssemblyTypeName: PlayerThrow, Assembly-CSharp
+        m_MethodName: ThrowInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &9113778950871595798
 PrefabInstance:
   m_ObjectHideFlags: 0

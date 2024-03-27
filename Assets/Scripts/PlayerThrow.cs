@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -75,10 +76,12 @@ public class PlayerThrow : MonoBehaviour
                 animator.Play("PlayerIdleAxe");
                 axe.SetActive(false);
                 axePositionHasReset = false;
+                /*
                 if(input.ThrowValue || input.RecallSelfValue)
                 {
                     playerHasAxe = false;
                 }
+                */
                 break;
             case false:
                 animator.Play("PlayerIdle");
@@ -92,11 +95,11 @@ public class PlayerThrow : MonoBehaviour
                     axerb.constraints = RigidbodyConstraints2D.None;
                     currentGravity = 0;
                     collider.isTrigger = true;
-                    if (move.isFacingRight)
+                    if (move.isFacingRight.Value == 1)
                     {
                         axeIsFacingRight = true;
                     }
-                    if(!move.isFacingRight)
+                    if(move.isFacingRight.Value == 0)
                     {
                         axeIsFacingRight = false;
                     }
@@ -214,6 +217,58 @@ public class PlayerThrow : MonoBehaviour
         }
         
     }
+
+    public void ThrowInput()
+    {
+        print("throw triggered");
+        if(axeStates == 3)
+        {
+            axeStates = 2;
+            axerb.constraints = RigidbodyConstraints2D.None;
+            axerb.velocity = Vector3.zero;
+        }
+        else{
+            if (playerHasAxe)
+            {
+                playerHasAxe = false;
+            }
+            else
+            {
+                axeStates = 2;
+                axerb.constraints = RigidbodyConstraints2D.None;
+                axerb.velocity = Vector3.zero;
+            }
+        }
+        
+    }
+
+    public void SelfRecallInput()
+    {
+        if(axeStates == 2)
+        {
+            axeStates = 3;
+            axerb.constraints = RigidbodyConstraints2D.FreezeAll;
+            axerb.velocity = Vector3.zero;
+            hitBox.enabled = true;
+            hurtBox.enabled = false;
+        }
+        else
+        {
+            if (playerHasAxe)
+            {
+                playerHasAxe = false;
+            }
+            else
+            {
+                axeStates = 3;
+                axerb.constraints = RigidbodyConstraints2D.FreezeAll;
+                axerb.velocity = Vector3.zero;
+                hitBox.enabled = true;
+                hurtBox.enabled = false;
+            }
+        }
+    }
+        
 
     private void recallSpeedIncrease()
     {

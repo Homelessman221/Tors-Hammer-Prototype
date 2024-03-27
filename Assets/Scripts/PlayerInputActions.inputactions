@@ -160,6 +160,17 @@
                 },
                 {
                     "name": "",
+                    "id": "347e01d4-a520-4f05-a63b-a2d5c3bc43f7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3259fc16-6da5-4881-8a62-da7320d39d15",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -206,6 +217,17 @@
                     "name": "",
                     "id": "45c2a10d-df96-4b3a-89a7-d4c719d7bf04",
                     "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RecallSelf",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ba49c13-3213-444e-992f-e64ef70e1b64",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

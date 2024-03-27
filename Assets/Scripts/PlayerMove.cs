@@ -30,15 +30,6 @@ public class PlayerMove : MonoBehaviour
         playerStates = GetComponent<PlayerStates>();
     }
 
-    private void Update()
-    {
-        if(playerStates.PlayerState == 0)
-        {
-            Jump();
-        }
-        
-    }
-
     private void FixedUpdate()
     {
         if(playerStates.PlayerState == 0)
@@ -51,7 +42,7 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
 
-        rb.velocity = moveVector.Value;
+        rb.velocity = new Vector2(moveVector.Value.x * moveSpeed, rb.velocity.y);
 
         if(isFacingRight.Value == 1)
         {
@@ -64,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Jump()
     {
-        if (isGrounded.Value == 1)
+        if (isGrounded.Value == 1 && playerStates.PlayerState == 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }

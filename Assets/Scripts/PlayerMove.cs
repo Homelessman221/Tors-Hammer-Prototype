@@ -14,12 +14,13 @@ public class PlayerMove : MonoBehaviour
     private float moveSpeed = 10;
     private float jumpStrength = 18;
 
-    public bool isFacingRight = true;
+    [SerializeField]public IntVariable isFacingRight;
 
     private float MaxDistanceForGroundCheck = 1;
     [SerializeField]private LayerMask isGroundLayer;
 
-    private bool isGrounded;
+    [SerializeField] private IntVariable isGrounded;
+    [SerializeField] private Vector2Variable moveVector;
 
     private void Start()
     {
@@ -34,7 +35,6 @@ public class PlayerMove : MonoBehaviour
         if(playerStates.PlayerState == 0)
         {
             Jump();
-            IsGrounded();
         }
         
     }
@@ -50,33 +50,23 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        Vector3 moveVector = new Vector3(input.MoveVector.x, 0f, input.MoveVector.y) * moveSpeed;
-        rb.velocity = new Vector3(moveVector.x, rb.velocity.y, moveVector.z);
 
-        if(input.MoveVector.x > 0f)
+        rb.velocity = moveVector.Value;
+
+        if(isFacingRight.Value == 1)
         {
-            isFacingRight = true;
             transform.localScale = new Vector3(playerScale, playerScale, playerScale);
         }
-        if (input.MoveVector.x < 0f)
+        if (isFacingRight.Value == 0)
         {
-            isFacingRight = false;
             transform.localScale = new Vector3(-playerScale, playerScale, playerScale);
         }
     }
-    private void Jump()
+    public void Jump()
     {
-        if (isGrounded && input.JumpValue)
+        if (isGrounded.Value == 1)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
-    }
-
-    private void IsGrounded()
-    {
-        Vector3 direction1 = Vector3.down;
-        Vector3 origin1 = transform.position + new Vector3(0, 0, 0);
-        isGrounded = Physics2D.Raycast(origin1, direction1, MaxDistanceForGroundCheck, isGroundLayer);
-        Debug.DrawRay(origin1, direction1 * MaxDistanceForGroundCheck, Color.red);
     }
 }

@@ -25,7 +25,11 @@ public class PlayerDirections : MonoBehaviour
         }
         else if (moveVector.Value.y < -moveTreshold)
         {
-            isFacingUp.Value= 0;
+            isFacingUp.Value= -1;
+        }
+        else
+        {
+            isFacingUp.Value = 0;
         }
     }
 }

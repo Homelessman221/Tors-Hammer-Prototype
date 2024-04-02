@@ -3324,6 +3324,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8292917972226022336}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022344}
+    - targetCorrespondingSourceObject: {fileID: 8292917971215619596, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8292917972226022345}
   m_SourcePrefab: {fileID: 100100000, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
 --- !u!114 &8292917972226022326 stripped
 MonoBehaviour:
@@ -3389,6 +3395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVector: {fileID: 11400000, guid: 85e2f478679f5904f8734e9e1b62520b, type: 2}
   isFacingRight: {fileID: 11400000, guid: f5ceb08b9735cb34fbc6e99b2fd34b24, type: 2}
+  isFacingUp: {fileID: 11400000, guid: 6e2ff6fa39befe146a9703693f1bc711, type: 2}
+  moveTreshold: 0.7
 --- !u!114 &8292917972226022336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,6 +3444,62 @@ MonoBehaviour:
       - m_Target: {fileID: 8292917972226022332}
         m_TargetAssemblyTypeName: PlayerThrow, Assembly-CSharp
         m_MethodName: ThrowInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8292917972226022339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8292917971215619702, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+  m_PrefabInstance: {fileID: 8292917972226022325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dfc052ad81bc84cbf0d1a9c96d05f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8292917972226022344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e5e64a042098e4ead1df7c478db663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStates: {fileID: 8292917972226022339}
+  isFacingRight: {fileID: 11400000, guid: f5ceb08b9735cb34fbc6e99b2fd34b24, type: 2}
+  isFacingUp: {fileID: 11400000, guid: 6e2ff6fa39befe146a9703693f1bc711, type: 2}
+  punchLungeSpeed: 0
+  punchCooldown: 0.2
+--- !u!114 &8292917972226022345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741466787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c178a28e6effda24ea255dd4512e38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 36539a267d1817b4e8bca85d91ff668c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8292917972226022344}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: AttackInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

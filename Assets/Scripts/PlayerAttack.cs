@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] PlayerStates playerStates;
+    [SerializeField] private IntVariable PlayerStates;
     [SerializeField] private IntVariable isFacingRight;
     [SerializeField] private IntVariable isFacingUp;
 
@@ -12,28 +12,114 @@ public class PlayerAttack : MonoBehaviour
 
     private bool canPunch = true;
     [SerializeField] private float punchTime;
+    [SerializeField] private float timeBeforeControllBack;
     [SerializeField] private float punchCooldown;
+
+    [SerializeField] private Rigidbody2D rb;
+
+    [SerializeField] private IntVariable isGrounded;
+
+    [SerializeField] private GameObject punchBox;
+
+    [SerializeField] private Transform upBoxPos;
+    [SerializeField] private Transform downBoxpos;
+    [SerializeField] private Transform leftBoxPos;
+    [SerializeField] private Transform rightBoxPos;
      public void AttackInput()
     {
         
 
-        if (playerStates.PlayerState == 0 && canPunch)
+        if (PlayerStates.Value == 0 && canPunch)
         {
-            playerStates.PlayerState = 2;
+            PlayerStates.Value = 2;
             canPunch = false;
             StartCoroutine(PunchEnd());
             StartCoroutine(Cooldown());
-            print("punch");
+            StartCoroutine(ControllBack());
+            //print("punch");
+            DirectionThings();
+            punchBox.SetActive(true);
         }
     }
     private IEnumerator PunchEnd()
     {
         yield return new WaitForSeconds(punchTime);
+        punchBox.SetActive(false);
+        if(isGrounded.Value == 1)
+        {
+        rb.velocity = Vector2.zero;
+        }
+        //print("punchEnd");
+        
+    }
+    private IEnumerator ControllBack()
+    {
+        yield return new WaitForSeconds(timeBeforeControllBack);
+
+        PlayerStates.Value = 0;
+
     }
     private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(punchCooldown);
         canPunch = true;
-        print("punch cool down over");
+        //print("punch cool down over");
+    }
+
+    private void DirectionThings()
+    {
+        if (isGrounded.Value == 1)
+        {
+            if (isFacingUp.Value == 1)
+            {
+                print("punch up");
+                rb.velocity = Vector2.zero;
+                punchBox.transform.position = upBoxPos.transform.position;
+            }
+            if (isFacingUp.Value == 0 || isFacingUp.Value == -1)
+            {
+                if (isFacingRight.Value == 1)
+                {
+                    print("punch right");
+                    rb.velocity = Vector2.right * punchLungeSpeed;
+                    punchBox.transform.position = rightBoxPos.transform.position;
+                }
+                if (isFacingRight.Value == 0)
+                {
+                    print("punch left");
+                    rb.velocity = Vector2.left * punchLungeSpeed;
+                    punchBox.transform.position = rightBoxPos.transform.position;
+                }
+            }
+        }
+        else
+        {
+            if (isFacingUp.Value == 1)
+            {
+                print("air punch up");
+                punchBox.transform.position = upBoxPos.transform.position;
+            }
+            if (isFacingUp.Value == -1)
+            {
+                print("air punch down");
+                punchBox.transform.position = downBoxpos.transform.position;
+
+            }
+            if (isFacingUp.Value == 0)
+            {
+                if (isFacingRight.Value == 1)
+                {
+                    print("air punch right");
+                    punchBox.transform.position = rightBoxPos.transform.position;
+                }
+                if (isFacingRight.Value == 0)
+                {
+                    print("air punch left");
+                    punchBox.transform.position = rightBoxPos.transform.position;
+                }
+            }
+        }
+       
+
     }
 }

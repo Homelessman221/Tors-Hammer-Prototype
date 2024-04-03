@@ -42,6 +42,7 @@ public class PlayerThrow : MonoBehaviour
 
     [SerializeField] private Collider2D hurtBox;
     [SerializeField] private Collider2D hitBox;
+    [SerializeField] private IntVariable playerStates;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -72,7 +73,7 @@ public class PlayerThrow : MonoBehaviour
         switch(playerHasAxe)
         {
             case true:
-                playerState.PlayerState = 0;
+                //playerState.PlayerState = 0;
                 animator.Play("PlayerIdleAxe");
                 axe.SetActive(false);
                 axePositionHasReset = false;
@@ -130,7 +131,7 @@ public class PlayerThrow : MonoBehaviour
             switch (axeStates)
             {
                 case 0:
-                    playerState.PlayerState = 0;
+                    //playerState.PlayerState = 0;
                     //Axe is thrown and moves in the direction the player was facing when they threw
 
                     axerb.gravityScale = currentGravity;
@@ -158,7 +159,7 @@ public class PlayerThrow : MonoBehaviour
                     break;
                 case 1:
                     //The Axe has hit a surface and is no longer moving
-                    playerState.PlayerState = 0;
+                    //playerState.PlayerState = 0;
                     axeAnimator.Play("AxeNormal");
                     collider.isTrigger = false;
                     axerb.gravityScale = maxGravity;
@@ -174,7 +175,7 @@ public class PlayerThrow : MonoBehaviour
                     break;
                 case 2:
                     //The axe is being recalled
-                    playerState.PlayerState = 0;
+                    //playerState.PlayerState = 0;
                     if (axeGrounded)
                     {
 
@@ -200,7 +201,7 @@ public class PlayerThrow : MonoBehaviour
                 case 3:
                     //When player recalls self to axe. The axe will stop moving while spinning, when the player touches the axe
                     // it will be picked up
-                    playerState.PlayerState = 1;
+                    playerStates.Value = 1;
                     axerb.constraints = RigidbodyConstraints2D.FreezeAll;
                     axe.transform.Rotate(Time.deltaTime * 0, 0, axeRotateSpeed, Space.Self);
                     collider.isTrigger = true;
@@ -326,6 +327,11 @@ public class PlayerThrow : MonoBehaviour
             currentAxeRecallSpeed = 0;
             hitBox.enabled = false;
             hurtBox.enabled = true;
+            playerStates.Value = 0;
+            if (axeStates == 3)
+            {
+                playerStates.Value = 0;
+            }
         }
     }
 

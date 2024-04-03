@@ -56,4 +56,6 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+
+    //Add hurt state co ruotine stuff
 }

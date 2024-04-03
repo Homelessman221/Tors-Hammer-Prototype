@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStates : MonoBehaviour
 {
-    public int PlayerState = 0;
+    [SerializeField] private IntVariable PlayerState;
     private PlayerMove move;
     private PlayerInput input;
     private Rigidbody2D rb;
@@ -15,6 +15,7 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private GameObjectVariable playerScrubReference;
     private void Start()
     {
+        PlayerState.Value = 0;
         move = GetComponent<PlayerMove>();
         input = GetComponent<PlayerInput>(); rb = GetComponent<Rigidbody2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -24,7 +25,7 @@ public class PlayerStates : MonoBehaviour
     private void Update()
     {
         
-        switch(PlayerState)
+        switch(PlayerState.Value)
             {
             case 0:
                 //Default state, player can do any action

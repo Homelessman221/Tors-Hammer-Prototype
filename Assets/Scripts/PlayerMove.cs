@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     private PlayerInput input;
     private Playerrecall playerrecall;
-    private PlayerStates playerStates;
+    [SerializeField] private IntVariable playerStates;
     private Rigidbody2D rb;
 
     private float playerScale = 0.07f;
@@ -27,12 +27,12 @@ public class PlayerMove : MonoBehaviour
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         playerrecall = GetComponent<Playerrecall>();
-        playerStates = GetComponent<PlayerStates>();
+
     }
 
     private void FixedUpdate()
     {
-        if(playerStates.PlayerState == 0)
+        if(playerStates.Value == 0)
         {
 
         Move();
@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Jump()
     {
-        if (isGrounded.Value == 1 && playerStates.PlayerState == 0)
+        if (isGrounded.Value == 1 && playerStates.Value == 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }

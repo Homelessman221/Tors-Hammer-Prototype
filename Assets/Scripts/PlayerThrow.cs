@@ -25,7 +25,7 @@ public class PlayerThrow : MonoBehaviour
     private float recallAcceleration = 90;
     private float axeRotateSpeed = 100;
 
-    private bool axeIsFacingRight = true;
+    private int axeDirection = 1;
     private float axeHopStrenght = 5;
     private float axeMaxDistanceForGroundCheck = 0.5f;
 
@@ -43,6 +43,9 @@ public class PlayerThrow : MonoBehaviour
     [SerializeField] private Collider2D hurtBox;
     [SerializeField] private Collider2D hitBox;
     [SerializeField] private IntVariable playerStates;
+
+    [SerializeField] private IntVariable playerIsFacingRight;
+    [SerializeField] private IntVariable playerIsFacingUp;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -96,6 +99,7 @@ public class PlayerThrow : MonoBehaviour
                     axerb.constraints = RigidbodyConstraints2D.None;
                     currentGravity = 0;
                     collider.isTrigger = true;
+                    /*
                     if (move.isFacingRight.Value == 1)
                     {
                         axeIsFacingRight = true;
@@ -103,6 +107,26 @@ public class PlayerThrow : MonoBehaviour
                     if(move.isFacingRight.Value == 0)
                     {
                         axeIsFacingRight = false;
+                    }
+                    */
+                    if(playerIsFacingUp.Value == 1)
+                    {
+                        axeDirection = 3;
+                    }
+                    if(playerIsFacingUp.Value == -1)
+                    {
+                        axeDirection = 4;
+                    }
+                    if(playerIsFacingUp.Value == 0)
+                    {
+                        if(playerIsFacingRight.Value == 0)
+                        {
+                            axeDirection = 0;
+                        }
+                        if(playerIsFacingRight.Value == 1)
+                        {
+                            axeDirection = 1; 
+                        }
                     }
                 }
                 if (input.ThrowValue)
@@ -138,13 +162,21 @@ public class PlayerThrow : MonoBehaviour
                     
                     axe.transform.Rotate(Time.deltaTime * 0, 0, axeRotateSpeed, Space.Self);
                     axeAnimator.Play("AxeLightning");
-                    if (axeIsFacingRight)
+                    if (axeDirection == 1)
                     {
                         axerb.velocity = new Vector2(axeSpeed, axerb.velocity.y);
                     }
-                    if (!axeIsFacingRight)
+                    if (axeDirection == 0)
                     {
                         axerb.velocity = new Vector2(-axeSpeed, axerb.velocity.y);
+                    }
+                    if (axeDirection == 3)
+                    {
+                        axerb.velocity = new Vector2(axerb.velocity.x, axeSpeed);
+                    }
+                    if (axeDirection == 4)
+                    {
+                        axerb.velocity = new Vector2(axerb.velocity.x, -axeSpeed);
                     }
 
                     if (currentGravity < maxGravity)

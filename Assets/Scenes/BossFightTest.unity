@@ -3632,6 +3632,14 @@ PrefabInstance:
       propertyPath: playerStates
       value: 
       objectReference: {fileID: 11400000, guid: 879b953da5b54bd459b0f0fdf12a956f, type: 2}
+    - target: {fileID: 8292917971215619594, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: playerIsFacingUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e2ff6fa39befe146a9703693f1bc711, type: 2}
+    - target: {fileID: 8292917971215619594, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
+      propertyPath: playerIsFacingRight
+      value: 
+      objectReference: {fileID: 11400000, guid: f5ceb08b9735cb34fbc6e99b2fd34b24, type: 2}
     - target: {fileID: 8292917971215619595, guid: cbe9bc679cc822f40b1e6954ee8b0206, type: 3}
       propertyPath: moveInput
       value: 

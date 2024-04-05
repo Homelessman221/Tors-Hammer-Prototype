@@ -9,11 +9,23 @@ public class NewBossStateController : MonoBehaviour
     [SerializeField] private float[] testList;
 
     [SerializeField] private BossAttackScrub[] firstPhaseAttacks;
+    [SerializeField] private BossAttackScrub[] secondPhaseAttacks;
+    [SerializeField] private BossAttackScrub[] thirdPhaseAttacks;
+    [SerializeField] private BossAttackScrub[] fourthPhaseAttacks;
     [SerializeField] private MonoBehaviour[] attackScriptList;
+
+    [SerializeField] private int secondPhaseThreshold;
+    [SerializeField] private int thirdPhaseThreshold;
+    [SerializeField] private int fourthPhaseThreshold;
+
+    
+
 
     private int lastAttack;
 
-    private int _bossPhase = 1;
+    [SerializeField]private IntVariable currentBossPhase;
+    [SerializeField] private IntVariable bossHealth;
+    [SerializeField] private int totalBossPhases;
 
     [SerializeField] private Transform rightCorner;
     [SerializeField] private Transform leftCorner;
@@ -38,6 +50,7 @@ public class NewBossStateController : MonoBehaviour
     {
         _bossState.Value = 0;
         lastAttack = -1;
+        currentBossPhase.Value = 1;
     }
     private void Update()
     {
@@ -63,6 +76,7 @@ public class NewBossStateController : MonoBehaviour
         {
             visualGameObject.transform.localScale = new Vector3(-0.2387f, 0.2387f, 0.2387f);
         }
+        nextPhase();
     }
 
     private void NextAttackScrub()
@@ -72,12 +86,44 @@ public class NewBossStateController : MonoBehaviour
             currentAttackScript.enabled = false;
         }        
         lastAttack++;
-        if(lastAttack >= firstPhaseAttacks.Length)
+
+        if(currentBossPhase.Value == 1)
         {
-            lastAttack = 0;
+            if (lastAttack >= firstPhaseAttacks.Length)
+            {
+                lastAttack = 0;
+            }
+            _bossState.Value = 1;
+            currentAttackScrub = firstPhaseAttacks[lastAttack];
         }
-        _bossState.Value = 1;
-        currentAttackScrub = firstPhaseAttacks[lastAttack];
+        if (currentBossPhase.Value == 2)
+        {
+            if (lastAttack >= secondPhaseAttacks.Length)
+            {
+                lastAttack = 0;
+            }
+            _bossState.Value = 1;
+            currentAttackScrub = secondPhaseAttacks[lastAttack];
+        }
+        if (currentBossPhase.Value == 3)
+        {
+            if (lastAttack >= thirdPhaseAttacks.Length)
+            {
+                lastAttack = 0;
+            }
+            _bossState.Value = 1;
+            currentAttackScrub = thirdPhaseAttacks[lastAttack];
+        }
+        if (currentBossPhase.Value == 4)
+        {
+            if (lastAttack >= fourthPhaseAttacks.Length)
+            {
+                lastAttack = 0;
+            }
+            _bossState.Value = 1;
+            currentAttackScrub = fourthPhaseAttacks[lastAttack];
+        }
+
         StartUpState();
         //print("current attack is" + firstPhaseAttacks[lastAttack]);
     }
@@ -219,6 +265,22 @@ public class NewBossStateController : MonoBehaviour
         currentAttackScript = attackScriptList[currentAttackScrub.attackID];
         currentAttackScript.enabled = true;
         _bossState.Value = 3;
+    }
+
+    private void nextPhase()
+    {
+        if(bossHealth.Value <= secondPhaseThreshold && secondPhaseThreshold != 0)
+        {
+            currentBossPhase.Value = 2;
+        }
+        if (bossHealth.Value <= thirdPhaseThreshold && thirdPhaseThreshold != 0)
+        {
+            currentBossPhase.Value = 3;
+        }
+        if (bossHealth.Value <= fourthPhaseThreshold && fourthPhaseThreshold != 0 )
+        {
+            currentBossPhase.Value = 4;
+        }
     }
 
 }

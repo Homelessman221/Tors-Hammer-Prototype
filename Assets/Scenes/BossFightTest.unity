@@ -3515,12 +3515,24 @@ MonoBehaviour:
   - 11
   firstPhaseAttacks:
   - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
+  secondPhaseAttacks:
+  - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
+  - {fileID: 11400000, guid: 052e0053ecd12ae4682502c1858e3fa6, type: 2}
+  thirdPhaseAttacks:
+  - {fileID: 11400000, guid: 7e9fd57ae5025ea4d895d45520b80c9d, type: 2}
   - {fileID: 11400000, guid: 052e0053ecd12ae4682502c1858e3fa6, type: 2}
   - {fileID: 11400000, guid: c042f49742758f44d850616534a7c095, type: 2}
+  fourthPhaseAttacks: []
   attackScriptList:
   - {fileID: 6160321076422409362}
   - {fileID: 6160321076422409363}
   - {fileID: 6160321076422409369}
+  secondPhaseThreshold: 30
+  thirdPhaseThreshold: 20
+  fourthPhaseThreshold: 0
+  currentBossPhase: {fileID: 11400000, guid: 72db8a5155b52f846aeb13f874e81fff, type: 2}
+  bossHealth: {fileID: 11400000, guid: bf7d2948df36cf4418a9742eeec6aae9, type: 2}
+  totalBossPhases: 0
   rightCorner: {fileID: 1210213563}
   leftCorner: {fileID: 2019698422}
   randomAttackMode: 0

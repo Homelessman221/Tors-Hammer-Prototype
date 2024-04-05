@@ -351,7 +351,7 @@ public class PlayerThrow : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(axeStates == 2 || axeStates == 3 && other.gameObject.CompareTag("Axe"))
+        if(axeStates == 2 && other.gameObject.CompareTag("Axe") || axeStates == 3 && other.gameObject.CompareTag("Axe"))
         {
             axeGrounded = false;
             axeStates = 0;

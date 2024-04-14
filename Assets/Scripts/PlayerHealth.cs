@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(health.Value <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         if(iFrameTimer > -1)
         {

@@ -28,7 +28,7 @@ public class BossHealth : MonoBehaviour
     {
         if(bossHealth.Value <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         
         if(timeColored >= 0)

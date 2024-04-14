@@ -16,7 +16,7 @@ public class BossHealth : MonoBehaviour
     private Shader shaderSpritesDefault;
 
 
-
+    [SerializeField] GameEvent bossTakesDamage;
     private void Start()
     {
         defaultColor = spriteRenderer.color;
@@ -52,6 +52,7 @@ public class BossHealth : MonoBehaviour
         spriteRenderer.color = hurtColor;
         spriteRenderer.material.shader = shaderGUItext;
         StartCoroutine(SetColorDefault());
+        bossTakesDamage.Raise();
     }
 
     private IEnumerator SetColorDefault()

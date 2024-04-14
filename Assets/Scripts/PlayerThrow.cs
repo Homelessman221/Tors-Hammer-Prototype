@@ -23,7 +23,7 @@ public class PlayerThrow : MonoBehaviour
     [SerializeField]private float currentAxeRecallSpeed = 0;
     private float maxAxeRecallSpeed = 10000;
     private float recallAcceleration = 90;
-    private float axeRotateSpeed = 100;
+    private float axeRotateSpeed = 0;
 
     private int axeDirection = 1;
     private float axeHopStrenght = 5;
@@ -112,20 +112,25 @@ public class PlayerThrow : MonoBehaviour
                     if(playerIsFacingUp.Value == 1)
                     {
                         axeDirection = 3;
+                        axe.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
                     if(playerIsFacingUp.Value == -1)
                     {
                         axeDirection = 4;
+
+                        axe.transform.rotation = Quaternion.Euler(0, 0, 180);
                     }
                     if(playerIsFacingUp.Value == 0)
                     {
                         if(playerIsFacingRight.Value == 0)
                         {
                             axeDirection = 0;
+                            axe.transform.rotation = Quaternion.Euler(0, 0,90);
                         }
                         if(playerIsFacingRight.Value == 1)
                         {
-                            axeDirection = 1; 
+                            axeDirection = 1;
+                            axe.transform.rotation = Quaternion.Euler(0, 0, -90);
                         }
                     }
                 }

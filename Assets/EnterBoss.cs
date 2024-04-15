@@ -7,6 +7,6 @@ public class EnterBoss : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player")) SceneManager.LoadScene(1);
+        if(!collision.CompareTag("Axe")) SceneManager.LoadScene(1);
     }
 }

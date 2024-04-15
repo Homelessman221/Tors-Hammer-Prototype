@@ -26,7 +26,7 @@ public class PlayerThrow : MonoBehaviour
     private float axeRotateSpeed = 0;
 
     private int axeDirection = 1;
-    private float axeHopStrenght = 5;
+    private float axeHopStrenght = 2;
     private float axeMaxDistanceForGroundCheck = 0.5f;
 
     private bool axePositionHasReset;

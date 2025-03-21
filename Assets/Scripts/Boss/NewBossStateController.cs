@@ -277,7 +277,7 @@ public class NewBossStateController : MonoBehaviour
         {
             currentBossPhase.Value = 3;
         }
-        if (bossHealth.Value <= fourthPhaseThreshold && fourthPhaseThreshold != 0 )
+        if (bossHealth.Value <= fourthPhaseThreshold && fourthPhaseThreshold != 0)
         {
             currentBossPhase.Value = 4;
         }

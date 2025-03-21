@@ -133,11 +133,11 @@ public class PlayerInput : MonoBehaviour
         _input.Player.Punch.started += AttackInputPressed;
         _input.Player.Punch.canceled += AttackReleaseInput;
         _input.Player.Throw.started += throwInput;
-        _input.Player.Throw.canceled += throwInputRelease;
+        //_input.Player.Throw.canceled += throwInputRelease;
         //XX_input.Player.Throw.started += throwInput;
         //_input.Player.PauseMenu.started += PauseMenu;
         _input.Player.RecallSelf.started += selfRecallInput;
-        _input.Player.RecallSelf.canceled += SelfRecallReleased;
+       // _input.Player.RecallSelf.canceled += SelfRecallReleased;
         _input.Player.PowerUp.started += PowerUpInput;
         _input.Player.PowerUp.canceled += PowerUpInputReleased;
         _input.Player.Jump.started += JumpInput;

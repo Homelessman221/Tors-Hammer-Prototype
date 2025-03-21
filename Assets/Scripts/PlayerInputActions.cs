@@ -38,12 +38,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Throw"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""0d96f175-87e1-4833-bdee-d34f95ff84a8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
@@ -56,12 +56,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""RecallSelf"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""429c9077-04ab-45c8-9b8d-9b9117b43574"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Aim"",
